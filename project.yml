@@ -1,0 +1,45 @@
+name: ScreenDoodle
+options:
+  deploymentTarget:
+    macOS: "14.0"
+  createIntermediateGroups: true
+targets:
+  ScreenDoodle:
+    type: application
+    platform: macOS
+    sources:
+      - Sources/ScreenDoodle
+    resources:
+      - Resources/AppIcon.icns
+    entitlements:
+      path: ScreenDoodle.entitlements
+    info:
+      path: Resources/Info.plist
+      properties:
+        CFBundleName: ScreenDoodle
+        CFBundleDisplayName: 屏幕涂鸦
+        CFBundleShortVersionString: "1.0"
+        CFBundleVersion: "1"
+        CFBundleIconFile: AppIcon
+        LSMinimumSystemVersion: "14.0"
+        LSUIElement: true
+        NSPrincipalClass: NSApplication
+        NSHumanReadableCopyright: "Copyright © 2026"
+        ITSAppUsesNonExemptEncryption: false
+    settings:
+      base:
+        PRODUCT_NAME: ScreenDoodle
+        PRODUCT_BUNDLE_IDENTIFIER: com.screendoodle.app
+        SWIFT_VERSION: "5.0"
+        MACOSX_DEPLOYMENT_TARGET: "14.0"
+        CODE_SIGN_STYLE: Automatic
+        # 上架/调试时在此填写你的 Team ID（DEVELOPMENT_TEAM）
+schemes:
+  ScreenDoodle:
+    build:
+      targets:
+        ScreenDoodle: all
+    run:
+      config: Debug
+    archive:
+      config: Release
